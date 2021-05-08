@@ -2,15 +2,22 @@
 #define FLAG_TRAP_HPP
 
 #include <string>
+#include <iostream>
+#include <sstream>
 
 class FlagTrap {
  public:
-  rangedAttack(std::string const& target);
-  meleeAttack(std::string const& target);
-  takeDamage(unsigned int amount);
-  beRepaired(unsigned int amount);
+  FlagTrap(std::string const& name);
+  void rangedAttack(std::string const& target);
+  void meleeAttack(std::string const& target);
+  void takeDamage(unsigned int amount);
+  void beRepaired(unsigned int amount);
 
  private:
+  void speak(void);
+  void speakHp(void);
+  void giveUp(void);
+
   std::string name;
   unsigned int hitPoints;
   unsigned int maxHitPoints;
@@ -20,6 +27,8 @@ class FlagTrap {
   unsigned int meleeAttackDamage;
   unsigned int rangedAttackDamage;
   unsigned int armorDamageReduction;
+  bool dead;
+  std::stringstream msg;
 };
 
 #endif

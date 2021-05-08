@@ -25,55 +25,55 @@ FlagTrap::FlagTrap(std::string const& name)
       rangedAttackDamage(20),
       armorDamageReduction(5),
       dead(false) {
-  this->msg << "system run. ready complete.";
-  this->speak();
+  msg << "system run. ready complete.";
+  speak();
 }
 
 // public method
 
 void FlagTrap::rangedAttack(std::string const& target) {
-  if (this->dead) return this->giveUp();
-  this->msg << "rocket punch launch to " << target
-            << "(-" << this->rangedAttackDamage << ").";
-  this->speak();
+  if (dead) return giveUp();
+  msg << "rocket punch launch to " << target
+            << "(-" << rangedAttackDamage << ").";
+  speak();
 }
 
 void FlagTrap::meleeAttack(std::string const& target) {
-  if (this->dead) return this->giveUp();
-  this->msg << "upper cut to " << target
-            << "(-" << this->meleeAttackDamage << ").";
-  this->speak();
+  if (dead) return giveUp();
+  msg << "upper cut to " << target
+            << "(-" << meleeAttackDamage << ").";
+  speak();
 }
 
 void FlagTrap::takeDamage(unsigned int amount) {
-  if (this->dead) return this->giveUp();
-  this->hitPoints = myMax(0, (int)this->hitPoints - amount);
-  if (this->hitPoints == 0) this->dead = true;
-  this->speakHp();
+  if (dead) return giveUp();
+  hitPoints = myMax(0, (int)hitPoints - amount);
+  if (hitPoints == 0) dead = true;
+  speakHp();
 }
 
 void FlagTrap::beRepaired(unsigned int amount) {
-  if (this->dead) return this->giveUp();
-  this->hitPoints = myMin(this->maxHitPoints, this->hitPoints + amount);
-  this->speakHp();
+  if (dead) return giveUp();
+  hitPoints = myMin(maxHitPoints, hitPoints + amount);
+  speakHp();
 }
 
 // private method
 
 void FlagTrap::speak(void) {
-  std::cout << this->name << "(FR4G-TP)" << ": "
-            << this->msg.str() << std::endl;
-  this->msg.clear();
+  std::cout << name << "(FR4G-TP)" << ": "
+            << msg.str() << std::endl;
+  msg.clear();
 }
 
 void FlagTrap::speakHp(void) {
-  this->msg << "HP: " << '[' << this->hitPoints << " / " << this->maxHitPoints << ']';
-  if (this->hitPoints == 0)   this->msg << ", died.";
-  if (this->hitPoints == 100) this->msg << ", I`am happy^^.";
-  this->speak();
+  msg << "HP: " << '[' << hitPoints << " / " << maxHitPoints << ']';
+  if (hitPoints == 0)   msg << ", died.";
+  if (hitPoints == 100) msg << ", I`am happy^^.";
+  speak();
 }
 
 void FlagTrap::giveUp(void) {
-  this->msg << "i can't do anything because I'm dead.";
-  this->speak();
+  msg << "i can't do anything because I'm dead.";
+  speak();
 }

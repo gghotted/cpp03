@@ -13,6 +13,7 @@ ctrl + D: exit
 */
 
 int main(void) {
+  std::srand(time(0));
   Ui::setTextColor(Ui::green);
   FragTrap robot(Ui::readStr("robot name"));
   while (1) {

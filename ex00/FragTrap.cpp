@@ -73,7 +73,7 @@ void FragTrap::vaulthunter_dot_exe(std::string const& target) {
   }
   energePoints = myMax(0, (long long)energePoints - 25);
   static const std::string skills[] = {
-    "Super Ultra New Clear Punch",
+    "Super Ultra NeClear Punch",
     "Launch oil",
     "Electric shock",
     "Super Ultra Noise Sound",

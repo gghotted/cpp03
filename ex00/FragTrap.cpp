@@ -67,6 +67,7 @@ void FragTrap::beRepaired(unsigned int amount) {
 }
 
 void FragTrap::vaulthunter_dot_exe(std::string const& target) {
+  if (dead) return giveUp();
   if (energePoints < 25) {
     speak() << "Not enough energe, need repair\n";
     return ;

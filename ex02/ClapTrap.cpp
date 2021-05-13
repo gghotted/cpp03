@@ -12,7 +12,7 @@ long long ClapTrap::myMin(long long v1, long long v2) {
 
 // constructor
 
-ClapTrap::ClapTrap(std::string const& name) : name(name) {
+ClapTrap::ClapTrap(std::string const& name) {
   this->name = name;
   hitPoints = 0;
   maxHitPoints = 0;

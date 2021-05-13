@@ -1,11 +1,11 @@
 #include "ClapTrap.hpp"
 
-static long long myMax(long long v1, long long v2) {
+long long ClapTrap::myMax(long long v1, long long v2) {
   if (v1 > v2) return v1;
   return v2;
 }
 
-static long long myMin(long long v1, long long v2) {
+long long ClapTrap::myMin(long long v1, long long v2) {
   if (v1 > v2) return v2;
   return v1;
 }

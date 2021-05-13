@@ -16,6 +16,10 @@ class ClapTrap {
 
  protected:
   std::ostream& speak(void);
+  void giveUp(void);
+
+  static long long myMax(long long v1, long long v2);
+  static long long myMin(long long v1, long long v2);
 
   std::string name;
   unsigned int hitPoints;
@@ -28,6 +32,8 @@ class ClapTrap {
   unsigned int armorDamageReduction;
   bool dead;
   std::string type;
+  std::string msgBorn;
+  std::string msgDestroy;
   std::string msgRangedAttack;
   std::string msgMeleeAttack;
   std::string msgTakeDamage;
@@ -37,9 +43,6 @@ class ClapTrap {
   std::string msgRepaired;
   std::string msgNoEnerge;
   std::string msgGiveUp;
-
- private:
-  void giveUp(void);
 };
 
 #endif

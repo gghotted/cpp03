@@ -13,6 +13,16 @@ long long ClapTrap::myMin(long long v1, long long v2) {
 // constructor
 
 ClapTrap::ClapTrap(std::string const& name) : name(name) {
+  this->name = name;
+  hitPoints = 0;
+  maxHitPoints = 0;
+  energePoints = 0;
+  maxEnergePoints = 0;
+  level = 0;
+  meleeAttackDamage = 0;
+  rangedAttackDamage = 0;
+  armorDamageReduction = 0;
+  dead = false;
   std::cout << "new ClapTrap\n";
 }
 

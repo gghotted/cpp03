@@ -22,7 +22,9 @@ ClapTrap::ClapTrap(std::string const& name) : name(name) {
   meleeAttackDamage = 0;
   rangedAttackDamage = 0;
   armorDamageReduction = 0;
-  dead = false;
+  dead = true;
+  msgDied = "This object is for inheritance only.\n"
+            "Create objects after modifying properties";
   std::cout << "new ClapTrap\n";
 }
 

@@ -10,13 +10,10 @@ class NinjaTrap : public ClapTrap {
   NinjaTrap(std::string const& name);
   ~NinjaTrap(void);
 
-  void ninjaShoebox(ClapTrap const& clapTrap);
-  void ninjaShoebox(ScavTrap const& scavTrap);
-  void ninjaShoebox(FragTrap const& fragTrap);
-  void ninjaShoebox(NinjaTrap const& ninjaTrap);
-
- private:
-  std::string msgNinjaShoebox;
+  void ninjaShoebox(ClapTrap& clapTrap);
+  void ninjaShoebox(ScavTrap& scavTrap);
+  void ninjaShoebox(FragTrap& fragTrap);
+  void ninjaShoebox(NinjaTrap& ninjaTrap);
 };
 
 #endif

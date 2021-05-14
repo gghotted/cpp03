@@ -1,6 +1,8 @@
 #include <string>
+#include "ClapTrap.hpp"
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "NinjaTrap.hpp"
 #include "Ui.hpp"
 
 /*
@@ -13,57 +15,37 @@
 ctrl + D: exit
 */
 
-void testFragTrap(void) {
-  FragTrap robot(Ui::readStr("robot name"));
-  while (1) {
-    int cmd = Ui::readInt("cmd");
-    if (cmd == 0)
-      robot.meleeAttack(Ui::readStr("meleeAttack target"));
-    else if (cmd == 1)
-      robot.rangedAttack(Ui::readStr("rangedAttack target"));
-    else if (cmd == 2)
-      robot.takeDamage(Ui::readU("damage amount"));
-    else if (cmd == 3)
-      robot.beRepaired(Ui::readU("repair amount"));
-    else if (cmd == 4)
-      robot.vaulthunter_dot_exe(Ui::readStr("random attack target"));
-    else if (cmd == 5)
-      break ;
-    else
-      Ui::errorMsg() << cmd << ": invalid cmd. try again." << Ui::endMsg();
-  }
-}
-
-void testScavTrap(void) {
-  ScavTrap robot(Ui::readStr("robot name"));
-  while (1) {
-    int cmd = Ui::readInt("cmd");
-    if (cmd == 0)
-      robot.meleeAttack(Ui::readStr("meleeAttack target"));
-    else if (cmd == 1)
-      robot.rangedAttack(Ui::readStr("rangedAttack target"));
-    else if (cmd == 2)
-      robot.takeDamage(Ui::readU("damage amount"));
-    else if (cmd == 3)
-      robot.beRepaired(Ui::readU("repair amount"));
-    else if (cmd == 4)
-      robot.challengeNewcomer(Ui::readStr("random attack target"));
-    else if (cmd == 5)
-      break ;
-    else
-      Ui::errorMsg() << cmd << ": invalid cmd. try again." << Ui::endMsg();
-  }
-}
-
 int main(void) {
   std::srand(time(0));
   Ui::setTextColor(Ui::green);
-  std::string cmd = Ui::readStr("frag or scav");
-  if (cmd.compare("frag") == 0)
-    testFragTrap();
-  else if (cmd.compare("scav") == 0)
-    testScavTrap();
-  else
-    Ui::errorMsg() << cmd << ": invalid cmd. try again." << Ui::endMsg();
+
+  Ui::readStr("ninja1 create");
+  NinjaTrap ninja("ninja1");
+
+  Ui::readStr("ninja2 create");
+  NinjaTrap ninja2("ninja2");
+
+  Ui::readStr("clap create");
+  ClapTrap clap("clap");
+
+  Ui::readStr("frag create");
+  FragTrap frag("frag");
+
+  Ui::readStr("scav create");
+  ScavTrap scav("scav");
+
+  Ui::readStr("shoebox to clap");
+  ninja.ninjaShoebox(clap);
+
+  Ui::readStr("shoebox to frag");
+  ninja.ninjaShoebox(frag);
+
+  Ui::readStr("shoebox to scav");
+  ninja.ninjaShoebox(scav);
+
+  Ui::readStr("shoebox to ninja2");
+  ninja.ninjaShoebox(ninja2);
+
+  Ui::readStr("destroy all");
   return 0;
 }

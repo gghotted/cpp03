@@ -70,6 +70,10 @@ void ClapTrap::beRepaired(unsigned int amount) {
 
 // private method
 
+std::string& ClapTrap::getName(void) {
+  return name;
+}
+
 std::ostream& ClapTrap::speak(void) {
   std::cout << "LEVEL: " << level
             << ", HP: [" << hitPoints << " / " << maxHitPoints << "]"

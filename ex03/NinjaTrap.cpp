@@ -3,27 +3,26 @@
 // constructor
 
 NinjaTrap::NinjaTrap(std::string const& name) : ClapTrap(name) {
-  hitPoints = 100;
-  maxHitPoints = 100;
-  energePoints = 100;
-  maxEnergePoints = 100;
+  hitPoints = 60;
+  maxHitPoints = 60;
+  energePoints = 120;
+  maxEnergePoints = 120;
   level = 1;
-  meleeAttackDamage = 30;
-  rangedAttackDamage = 20;
-  armorDamageReduction = 5;
+  meleeAttackDamage = 60;
+  rangedAttackDamage = 5;
+  armorDamageReduction = 0;
   dead = false;
-  type = "Frag";
-  msgBorn = "system run. ready complete";
-  msgDestroy = "system off. bye";
-  msgRangedAttack = "launch rocket punch";
-  msgMeleeAttack = "upper cut";
+  type = "Ninja";
+  msgBorn = "ninjaTrap run. ready complete";
+  msgDestroy = "ninjaTrap off. bye";
+  msgRangedAttack = "Dagger Throw";
+  msgMeleeAttack = "Two-stage dagger cutting";
   msgDied = "i'am dead, good bye";
   msgPain = "pain. stop attacking";
   msgFullPower = "full power!";
   msgRepaired = "self-repair complete";
   msgNoEnerge = "not enough energe, need repair";
   msgGiveUp = "i can't do anything because I'm dead";
-  msgNinjaShoebox = "Throwing a shoe box!";
   speak() << msgBorn << "\n";
 }
 
@@ -34,18 +33,23 @@ NinjaTrap::~NinjaTrap(void) {
 // public method
 
 void NinjaTrap::ninjaShoebox(ClapTrap& clapTrap) {
-  speak() << msgNinjaShoebox << "\n";
-  clapTrap.takeDamage()
+  speak() << clapTrap.getName() << ": this object is not allowed"
+                                   " because it is an inheritance-only class\n";
 }
 
-void NinjaTrap::ninjaShoebox(ScavTrap const& scavTrap) {
-  speak() << msgNinjaShoebox << "\n";
+void NinjaTrap::ninjaShoebox(ScavTrap& scavTrap) {
+  speak() << "hello my brother. i hate you\n";
+  meleeAttack(scavTrap.getName());
+  scavTrap.takeDamage(maxHitPoints);
 }
 
-void NinjaTrap::ninjaShoebox(FragTrap const& fragTrap) {
-  speak() << msgNinjaShoebox << "\n";
+void NinjaTrap::ninjaShoebox(FragTrap& fragTrap) {
+  speak() << "hello my brother. i like you, i'm gonna fix you\n";
+  fragTrap.beRepaired(50);
 }
 
-void NinjaTrap::ninjaShoebox(NinjaTrap const& ninjaTrap) {
-  speak() << msgNinjaShoebox << "\n";
+void NinjaTrap::ninjaShoebox(NinjaTrap& ninjaTrap) {
+  speak() << "who are you..? oh my god!(Died of mental shock)\n";
+  ninjaTrap.takeDamage(maxHitPoints);
+  this->takeDamage(maxHitPoints);
 }

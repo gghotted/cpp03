@@ -40,7 +40,7 @@ void NinjaTrap::ninjaShoebox(ClapTrap& clapTrap) {
 void NinjaTrap::ninjaShoebox(ScavTrap& scavTrap) {
   speak() << "hello my brother. i hate you\n";
   meleeAttack(scavTrap.getName());
-  scavTrap.takeDamage(maxHitPoints);
+  scavTrap.takeDamage(meleeAttackDamage);
 }
 
 void NinjaTrap::ninjaShoebox(FragTrap& fragTrap) {
@@ -51,5 +51,5 @@ void NinjaTrap::ninjaShoebox(FragTrap& fragTrap) {
 void NinjaTrap::ninjaShoebox(NinjaTrap& ninjaTrap) {
   speak() << "who are you..? oh my god!(Died of mental shock)\n";
   ninjaTrap.takeDamage(maxHitPoints);
-  this->takeDamage(maxHitPoints);
+  this->takeDamage(maxHitPoints + armorDamageReduction);
 }

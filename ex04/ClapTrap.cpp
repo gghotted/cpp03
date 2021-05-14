@@ -12,32 +12,24 @@ long long ClapTrap::myMin(long long v1, long long v2) {
 
 // constructor
 
-const unsigned int ClapTrap::defaultHitPoints = 0;
-const unsigned int ClapTrap::defaultMaxHitPoints = 0;
-const unsigned int ClapTrap::defaultEnergePoints = 0;
-const unsigned int ClapTrap::defaultMaxEnergePoints = 0;
-const unsigned int ClapTrap::defaultLevel = 0;
-const unsigned int ClapTrap::defaultMeleeAttackDamage = 0;
-const unsigned int ClapTrap::defaultRangedAttackDamage = 0;
-const unsigned int ClapTrap::defaultArmorDamageReduction = 0;
-const unsigned int ClapTrap::defaultDead = true;
-const std::string ClapTrap::msgDied = "This object is for inheritance only.\n"
-                                      "Create objects after modifying properties";
-
-ClapTrap::ClapTrap(std::string const& name) : name(name) {
-  hitPoints = defaultHitPoints;
-  maxHitPoints = defaultMaxHitPoints;
-  energePoints = defaultEnergePoints;
-  maxEnergePoints = defaultMaxEnergePoints;
-  level = defaultLevel;
-  meleeAttackDamage = defaultMeleeAttackDamage;
-  rangedAttackDamage = defaultRangedAttackDamage;
-  armorDamageReduction = defaultArmorDamageReduction;
-  std::cout << "new ClapTrap\n";
+ClapTrap::ClapTrap(std::string const& name) {
+  this->name = name;
+  hitPoints = 0;
+  maxHitPoints = 0;
+  energePoints = 0;
+  maxEnergePoints = 0;
+  level = 0;
+  meleeAttackDamage = 0;
+  rangedAttackDamage = 0;
+  armorDamageReduction = 0;
+  dead = true;
+  msgDied = "This object is for inheritance only.\n"
+            "Create objects after modifying properties";
+  std::cout << "clap created\n";
 }
 
 ClapTrap::~ClapTrap(void) {
-  std::cout << "del ClapTrap\n";
+  std::cout << "clap deleted\n";
 }
 
 // public method

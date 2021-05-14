@@ -1,32 +1,29 @@
 #include "FragTrap.hpp"
 
-unsigned int FragTrap::defaultHitPoints = 100;
-unsigned int FragTrap::defaultMaxHitPoints = 100;
-unsigned int FragTrap::defaultEnergePoints = 100;
-unsigned int FragTrap::defaultMaxEnergePoints = 100;
-unsigned int FragTrap::defaultLevel = 1;
-unsigned int FragTrap::defaultMeleeAttackDamage = 30;
-unsigned int FragTrap::defaultRangedAttackDamage = 20;
-unsigned int FragTrap::defaultArmorDamageReduction = 5;
-bool defaultDead = false;
-std::string type = "Frag";
-std::string msgBorn = "system run. ready complete";
-std::string msgDestroy = "system off. bye";
-std::string msgRangedAttack = "launch rocket punch";
-std::string msgMeleeAttack = "upper cut";
-std::string msgDied = "i'am dead, good bye";
-std::string msgPain = "pain. stop attacking";
-std::string msgFullPower = "full power!";
-std::string msgRepaired = "self-repair complete";
-std::string msgNoEnerge = "not enough energe, need repair";
-std::string msgGiveUp = "i can't do anything because I'm dead";
-
 FragTrap::FragTrap(std::string const& name) : ClapTrap(name) {
-  speak() << msgBorn << "\n";
+  hitPoints = 100;
+  maxHitPoints = 100;
+  energePoints = 100;
+  maxEnergePoints = 100;
+  level = 1;
+  meleeAttackDamage = 30;
+  rangedAttackDamage = 20;
+  armorDamageReduction = 5;
+  dead = false;
+  type = "Frag";
+  msgRangedAttack = "launch rocket punch";
+  msgMeleeAttack = "upper cut";
+  msgDied = "i'am dead, good bye";
+  msgPain = "pain. stop attacking";
+  msgFullPower = "full power!";
+  msgRepaired = "self-repair complete";
+  msgNoEnerge = "not enough energe, need repair";
+  msgGiveUp = "i can't do anything because I'm dead";
+  std::cout << "frag created" << "\n";
 }
 
 FragTrap::~FragTrap(void) {
-  speak() << msgDestroy << "\n";
+  std::cout << "frag deleted" << "\n";
 }
 
 void FragTrap::vaulthunter_dot_exe(std::string const& target) {

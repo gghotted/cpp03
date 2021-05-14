@@ -3,11 +3,29 @@
 // constructor
 
 ScavTrap::ScavTrap(std::string const& name) : ClapTrap(name) {
-  speak() << msgBorn << "\n";
+  hitPoints = 100;
+  maxHitPoints = 100;
+  energePoints = 50;
+  maxEnergePoints = 50;
+  level = 1;
+  meleeAttackDamage = 20;
+  rangedAttackDamage = 15;
+  armorDamageReduction = 3;
+  dead = false;
+  type = "Scav";
+  msgRangedAttack = "haha. launch rocket punch";
+  msgMeleeAttack = "haha. upper cut";
+  msgDied = "haha. i'am dead, good bye";
+  msgPain = "haha. pain. stop attacking";
+  msgFullPower = "haha. full power!";
+  msgRepaired = "haha. self-repair complete";
+  msgNoEnerge = "haha. not enough energe, need repair";
+  msgGiveUp = "haha. i can't do anything because I'm dead";
+  std::cout << "scav created" << "\n";
 }
 
 ScavTrap::~ScavTrap(void) {
-  speak() << msgDestroy << "\n";
+  std::cout << "scav deleted" << "\n";
 }
 
 // public method

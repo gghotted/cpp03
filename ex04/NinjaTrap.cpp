@@ -48,6 +48,6 @@ void NinjaTrap::ninjaShoebox(FragTrap& fragTrap) {
 
 void NinjaTrap::ninjaShoebox(NinjaTrap& ninjaTrap) {
   speak() << "who are you..? oh my god!(Died of mental shock)\n";
-  ninjaTrap.takeDamage(maxHitPoints);
+  ninjaTrap.takeDamage(maxHitPoints + armorDamageReduction);
   this->takeDamage(maxHitPoints + armorDamageReduction);
 }

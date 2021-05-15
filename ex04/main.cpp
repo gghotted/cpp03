@@ -19,12 +19,14 @@ int main(void) {
   Ui::readStr("melee Attack as ninja");
   super.meleeAttack("enemy");
 
-  Ui::readStr("melee Attack as frag");
-  super.meleeAttack("enemy");
+  Ui::readStr("range Attack as frag");
+  super.rangedAttack("enemy");
 
   Ui::readStr("shoebox to scav");
   super.ninjaShoebox(scav);
 
+  Ui::readStr("vaulthunter as fragTrap");
+  super.vaulthunter_dot_exe(scav.getName());
   Ui::readStr("destroy all");
   return 0;
 }
